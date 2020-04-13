@@ -1,0 +1,19 @@
+{
+  "name": "coding-challenges",
+  "version": "1.0.0",
+  "dependencies": {
+    "jest": "25.1.0",
+    "typescript": "3.8.3"
+  },
+  "devDependencies": {
+    "@types/jest": "25.1.4",
+    "@types/node": "13.9.3",
+    "prettier": "2.0.2",
+    "ts-jest": "25.2.1"
+  },
+  "scripts": {
+    "test": "jest",
+    "test-watch": "jest --watch"
+  },
+  "private": true
+}
