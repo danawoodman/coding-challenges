@@ -14,15 +14,15 @@ function hash_map_compare(nums: number[], target: number): number[] {
 	let map = new Map<number, number>();
 
 	for (let i = 0; i < nums.length; i++) {
-		const num1 = nums[i];
-		const num2 = target - num1;
+		const num = nums[i];
+		const diff = target - num;
 
 		// If `num2` is in the map, we can create a pair of numbers
 		// that equal `target`
-		if (map.get(num2) !== undefined) return [map.get(num2)!, i];
+		if (map.get(diff) !== undefined) return [map.get(diff)!, i];
 
 		// If we cannot create a pair, add the current number to the map.
-		map.set(num1, i);
+		map.set(num, i);
 	}
 
 	return [];

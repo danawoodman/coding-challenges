@@ -4,7 +4,7 @@ https://www.youtube.com/watch?v=cQ1Oz4ckceM&list=PLot-Xpze53lfQmTEztbgdp8ALEoydv
 
 import { expect, describe, test } from "vitest";
 
-function hash_map_compare(nums: number[], target: number): number[] {
+function iterative_solution(nums: number[], target: number): number[] {
 	for (let i = nums.length - 1; i > 0; i--) {
 		const num = nums[i];
 		const next = nums[i - 1];
@@ -16,8 +16,25 @@ function hash_map_compare(nums: number[], target: number): number[] {
 	return [];
 }
 
+// time: O(n)
+function bidirectional_solution(nums: number[], target: number): number[] {
+	let left = 0;
+	let right = nums.length - 1;
+
+	while (left < right) {
+		const sum = nums[left] + nums[right];
+
+		if (sum > target) right--;
+		else if (sum < target) left++;
+		else return [left + 1, right + 1];
+	}
+
+	return [];
+}
+
 function two_sum(nums: number[], target: number): number[] {
-	return hash_map_compare(nums, target);
+	return bidirectional_solution(nums, target);
+	// return bidirectional_solution(nums, target);
 }
 
 describe("two sum 2", () => {
